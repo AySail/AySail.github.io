@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jer's Projects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #00bcd4;
+    }
+    p.subtitle {
+      font-size: 1.2rem;
+      color: #80deea;
+    }
+    section {
+      max-width: 700px;
+      width: 100%;
+      margin-bottom: 40px;
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00bcd4aa;
+    }
+    h2 {
+      color: #00acc1;
+      margin-bottom: 15px;
+    }
+    a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul.projects-list {
+      list-style: none;
+      padding: 0;
+    }
+    ul.projects-list li {
+      margin-bottom: 12px;
+    }
+    ul.facts-list {
+      list-style: disc inside;
+      padding-left: 20px;
+    }
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jer</h1>
+    <p class="subtitle">Indie Developer | Maker of Games, Apps & Websites</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a passionate indie developer creating innovative games, apps, and tools like Jer Maps.
+      I’m always exploring new ideas and pushing boundaries in tech.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li><a href="https://github.com/AySail/Jer-Maps" target="_blank" rel="noopener noreferrer">Jer Maps</a> - A community-driven historical and satellite map platform with unique features.</li>
+      <li><a href="https://github.com/AySail/Ezimple-Notes" target="_blank" rel="noopener noreferrer">Ezimple-Notes</a> - A simple, intuitive notes app designed for easy use.</li>
+      <li><a href="https://github.com/AySail/JersPlayground" target="_blank" rel="noopener noreferrer">JersPlayground</a> - A creative space for experimenting with code and ideas.</li>
+    </ul>
+  </section>
+
+  <section id="fun-facts">
+    <h2>Random Fun Facts</h2>
+    <ul class="facts-list" id="facts-list">
+      <!-- Fun facts will be inserted here -->
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out or follow me on <a href="https://github.com/AySail" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  </section>
+
+  <footer>
+    <p>© Jer 2025</p>
+  </footer>
+
+  <script>
+    const facts = [
+      "My fav color is Purple.",
+      "My fav cat is the tiger.",
+      "Jers playground originally had 5 game modes, only 3 still exist today.",
+      "Did you know that my username Aysail was made in 5 minutes?",
+      "I play Xbox.",
+      "I played Minecraft.",
+      "My first time using Godot I was very confused.",
+      "I first learned Scratch, then TurboWarp, then Python, then web development."
+    ];
+
+    function getRandomFacts(arr, num) {
+      const shuffled = arr.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, num);
+    }
+
+    function displayFacts() {
+      const factsList = document.getElementById('facts-list');
+      const randomFacts = getRandomFacts(facts, 4);
+      factsList.innerHTML = '';
+      randomFacts.forEach(fact => {
+        const li = document.createElement('li');
+        li.textContent = fact;
+        factsList.appendChild(li);
+      });
+    }
+
+    displayFacts();
+  </script>
+</body>
+</html>
