@@ -1,140 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jer's Projects</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #121212;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #00bcd4;
-    }
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #80deea;
-    }
-    section {
-      max-width: 700px;
-      width: 100%;
-      margin-bottom: 40px;
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00bcd4aa;
-    }
-    h2 {
-      color: #00acc1;
-      margin-bottom: 15px;
-    }
-    a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul.projects-list {
-      list-style: none;
-      padding: 0;
-    }
-    ul.projects-list li {
-      margin-bottom: 12px;
-    }
-    ul.facts-list {
-      list-style: disc inside;
-      padding-left: 20px;
-    }
-    footer {
-      margin-top: auto;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jer's Playground</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  body {
+    margin: 0;
+    background: #0f1624;
+    color: #e0e6f0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+  }
+  header {
+    background: #1a2238;
+    padding: 2rem 1rem;
+  }
+  header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #3f84e5;
+    transition: transform 0.3s ease;
+  }
+  header img:hover {
+    transform: scale(1.1);
+  }
+  header h1 {
+    margin: 1rem 0 0.2rem;
+    font-weight: 600;
+    color: #3f84e5;
+  }
+  header p {
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #cbd4e6;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section.games {
+    margin-top: 2rem;
+  }
+  section.games h2,
+  section.facts h2 {
+    color: #3f84e5;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 1.5rem;
+  }
+  .game-card {
+    background: #1a2238;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(63, 132, 229, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(63, 132, 229, 0.5);
+  }
+  .game-card h3 {
+    margin: 0 0 0.5rem;
+    color: #e0e6f0;
+  }
+  .game-card p {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #a3a9b8;
+  }
+
+  section.facts {
+    margin-top: 3rem;
+    background: #1a2238;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #cbd4e6;
+  }
+  section.facts ul {
+    padding-left: 1.2rem;
+    list-style-type: square;
+  }
+  section.facts ul li {
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
+  }
+
+  footer {
+    background: #1a2238;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #66718a;
+  }
+  footer a {
+    color: #3f84e5;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Jer</h1>
-    <p class="subtitle">Indie Developer | Maker of Games, Apps & Websites</p>
-  </header>
+<header>
+  <img src="https://avatars.githubusercontent.com/u/229030594?v=4" alt="Jer's Profile Picture" />
+  <h1>Jer's Playground</h1>
+  <p>Welcome to my site! I’m Jer (AySail) — a young hobbyist coder building micro and mini games. Dive in and have fun!</p>
+</header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate indie developer creating innovative games, apps, and tools like Jer Maps.
-      I’m always exploring new ideas and pushing boundaries in tech.
-    </p>
+<main>
+  <section class="games">
+    <h2>Games & Projects</h2>
+    <div class="game-list">
+      <div class="game-card" onclick="alert('Game coming soon!')">
+        <h3>Game 1</h3>
+        <p>My first mini game — stay tuned for updates.</p>
+      </div>
+      <div class="game-card" onclick="alert('Game coming soon!')">
+        <h3>Game 2</h3>
+        <p>Another fun project in progress.</p>
+      </div>
+      <div class="game-card" onclick="alert('Game coming soon!')">
+        <h3>Game 3</h3>
+        <p>More exciting games coming your way!</p>
+      </div>
+    </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul class="projects-list">
-      <li><a href="https://github.com/AySail/Jer-Maps" target="_blank" rel="noopener noreferrer">Jer Maps</a> - A community-driven historical and satellite map platform with unique features.</li>
-      <li><a href="https://github.com/AySail/Ezimple-Notes" target="_blank" rel="noopener noreferrer">Ezimple-Notes</a> - A simple, intuitive notes app designed for easy use.</li>
-      <li><a href="https://github.com/AySail/JersPlayground" target="_blank" rel="noopener noreferrer">JersPlayground</a> - A creative space for experimenting with code and ideas.</li>
+  <section class="facts">
+    <h2>Fun Facts</h2>
+    <ul>
+      <li>Jer's Playground originally had 5 game modes; only 3 still exist today from the original 5.</li>
+      <li>I’m a young hobbyist coder who loves mixing creativity with technology.</li>
+      <li>I’m passionate about creative arts, geopolitics, and geography.</li>
+      <li>I mainly code on macOS using tools like VS Code, TurboWarp, Figma, and Inkscape.</li>
+      <li>I’m excited about upcoming cool games and projects.</li>
     </ul>
   </section>
+</main>
 
-  <section id="fun-facts">
-    <h2>Random Fun Facts</h2>
-    <ul class="facts-list" id="facts-list">
-      <!-- Fun facts will be inserted here -->
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out or follow me on <a href="https://github.com/AySail" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
-  </section>
-
-  <footer>
-    <p>© Jer 2025</p>
-  </footer>
-
-  <script>
-    const facts = [
-      "My fav color is Purple.",
-      "My fav cat is the tiger.",
-      "Jers playground originally had 5 game modes, only 3 still exist today.",
-      "Did you know that my username Aysail was made in 5 minutes?",
-      "I play Xbox.",
-      "I played Minecraft.",
-      "My first time using Godot I was very confused.",
-      "I first learned Scratch, then TurboWarp, then Python, then web development."
-    ];
-
-    function getRandomFacts(arr, num) {
-      const shuffled = arr.sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, num);
-    }
-
-    function displayFacts() {
-      const factsList = document.getElementById('facts-list');
-      const randomFacts = getRandomFacts(facts, 4);
-      factsList.innerHTML = '';
-      randomFacts.forEach(fact => {
-        const li = document.createElement('li');
-        li.textContent = fact;
-        factsList.appendChild(li);
-      });
-    }
-
-    displayFacts();
-  </script>
+<footer>
+  <p>Find me on  
+    <a href="https://github.com/AySail" target="_blank" rel="noopener">GitHub</a> | 
+    <a href="https://codepen.io/AySail" target="_blank" rel="noopener">CodePen</a>
+  </p>
+</footer>
 </body>
 </html>
+
