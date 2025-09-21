@@ -1,173 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jer's Playground</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
-  body {
-    margin: 0;
-    background: #0f1624;
-    color: #e0e6f0;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    text-align: center;
-  }
-  header {
-    background: #1a2238;
-    padding: 2rem 1rem;
-  }
-  header img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #3f84e5;
-    transition: transform 0.3s ease;
-  }
-  header img:hover {
-    transform: scale(1.1);
-  }
-  header h1 {
-    margin: 1rem 0 0.2rem;
-    font-weight: 600;
-    color: #3f84e5;
-  }
-  header p {
-    margin: 0;
-    font-weight: 300;
-    font-size: 1.1rem;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #cbd4e6;
-  }
-
-  main {
-    flex-grow: 1;
-    padding: 2rem 1rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  section.games {
-    margin-top: 2rem;
-  }
-  section.games h2,
-  section.facts h2 {
-    color: #3f84e5;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  .game-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 1.5rem;
-  }
-  .game-card {
-    background: #1a2238;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(63, 132, 229, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .game-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(63, 132, 229, 0.5);
-  }
-  .game-card h3 {
-    margin: 0 0 0.5rem;
-    color: #e0e6f0;
-  }
-  .game-card p {
-    font-weight: 300;
-    font-size: 0.9rem;
-    color: #a3a9b8;
-  }
-
-  section.facts {
-    margin-top: 3rem;
-    background: #1a2238;
-    padding: 1.5rem 1rem;
-    border-radius: 10px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    color: #cbd4e6;
-  }
-  section.facts ul {
-    padding-left: 1.2rem;
-    list-style-type: square;
-  }
-  section.facts ul li {
-    margin-bottom: 0.7rem;
-    line-height: 1.4;
-  }
-
-  footer {
-    background: #1a2238;
-    padding: 1rem;
-    font-size: 0.9rem;
-    color: #66718a;
-  }
-  footer a {
-    color: #3f84e5;
-    text-decoration: none;
-    margin: 0 0.5rem;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AySail (Jer) — About Me</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #222;
+      background: #f9f9f9;
+      line-height: 1.5;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    img.profile {
+      width: 150px;
+      border-radius: 50%;
+      border: 3px solid #4a90e2;
+    }
+    h1 {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: #004080;
+      margin-bottom: 0.2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4a90e2;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 1.5rem;
+    }
+    h2 {
+      color: #004080;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .emoji {
+      font-size: 1.2rem;
+    }
+    .portfolio-list {
+      margin-top: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid #4a90e2;
+    }
+    .portfolio-list li {
+      margin-bottom: 0.7rem;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <img src="https://avatars.githubusercontent.com/u/229030594?v=4" alt="Jer's Profile Picture" />
-  <h1>Jer's Playground</h1>
-  <p>Welcome to my site! I’m Jer (AySail) — a young hobbyist coder building micro and mini games. Dive in and have fun!</p>
-</header>
+  <header>
+    <img
+      class="profile"
+      src="https://avatars.githubusercontent.com/u/229030594?v=4"
+      alt="Profile picture of AySail (Jer)"
+    />
+    <h1>AySail (Jer)</h1>
+    <p>Welcome to my personal website!</p>
+  </header>
 
-<main>
-  <section class="games">
-    <h2>Games & Projects</h2>
-    <div class="game-list">
-      <div class="game-card" onclick="alert('Game coming soon!')">
-        <h3>Game 1</h3>
-        <p>My first mini game — stay tuned for updates.</p>
-      </div>
-      <div class="game-card" onclick="alert('Game coming soon!')">
-        <h3>Game 2</h3>
-        <p>Another fun project in progress.</p>
-      </div>
-      <div class="game-card" onclick="alert('Game coming soon!')">
-        <h3>Game 3</h3>
-        <p>More exciting games coming your way!</p>
-      </div>
-    </div>
-  </section>
+  <nav>
+    <a href="index.html">About Me</a> |
+    <a href="projects.html">My Projects</a>
+  </nav>
 
-  <section class="facts">
-    <h2>Fun Facts</h2>
+  <section>
+    <h2>About Me</h2>
     <ul>
-      <li>Jer's Playground originally had 5 game modes; only 3 still exist today from the original 5.</li>
-      <li>I’m a young hobbyist coder who loves mixing creativity with technology.</li>
-      <li>I’m passionate about creative arts, geopolitics, and geography.</li>
-      <li>I mainly code on macOS using tools like VS Code, TurboWarp, Figma, and Inkscape.</li>
-      <li>I’m excited about upcoming cool games and projects.</li>
+      <li><span class="emoji">🌱</span> Coding as a hobby — always learning and trying new things</li>
+      <li><span class="emoji">🎨</span> Into creative arts — I love combining creativity with tech</li>
+      <li><span class="emoji">🌍</span> Big fan of geopolitics and geography — always curious about the world</li>
+      <li><span class="emoji">💻</span> Mainly code on macOS, using VS Code and sometimes TurboWarp</li>
+      <li><span class="emoji">🎮</span> Working on Jer’s Playground — a website filled with micro and mini games I’m building</li>
+      <li><span class="emoji">🎨</span> Use Inkscape and Figma for vector graphics and design</li>
+      <li><span class="emoji">🚀</span> Excited about upcoming cool games and projects!</li>
     </ul>
   </section>
-</main>
 
-<footer>
-  <p>Find me on  
-    <a href="https://github.com/AySail" target="_blank" rel="noopener">GitHub</a> | 
-    <a href="https://codepen.io/AySail" target="_blank" rel="noopener">CodePen</a>
-  </p>
-</footer>
+  <section>
+    <h2>My Setup</h2>
+    <p>
+      At the moment, I’m coding and creating on a MacBook Air (13-inch, 2017) running macOS Monterey 12.7.6. Some of the main apps and tools I use include VS Code for coding, TurboWarp for Scratch-based projects, Figma and Inkscape for design and vector graphics, Zen Browser for browsing, Notion for organizing my ideas, Prism Launcher for managing Minecraft mods, plus the built-in macOS Calculator and Terminal for everyday tasks. I also use AlDente to manage my MacBook’s battery health.
+    </p>
+    <p>
+      This setup helps me balance coding, creative work, and productivity smoothly.
+    </p>
+  </section>
+
+  <section>
+    <p>
+      And don’t stress—you’ve done great today. Take a moment to relax and reflect on how your day’s been. Sending love to everyone who enjoys my projects—they’re made for you. 💙
+    </p>
+    <p>
+      Thanks for stopping by! Stay creative and keep exploring. 🚀
+    </p>
+    <p>
+      — Jer (AySail)
+    </p>
+  </section>
+
+  <section>
+    <h2>Portfolio Preview</h2>
+    <p>Here are some projects I'm working on. Check out the full list on the <a href="projects.html">projects page</a>.</p>
+    <ul class="portfolio-list">
+      <li><strong>Jer’s Playground</strong> — A website filled with micro and mini games I’m building.</li>
+      <li><strong>Creative Vector Art</strong> — Designs made using Inkscape and Figma.</li>
+      <li><strong>TurboWarp Experiments</strong> — Scratch-based projects and fun experiments.</li>
+    </ul>
+  </section>
 </body>
 </html>
 
