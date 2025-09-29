@@ -1,0 +1,389 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aysail's Portfolio</title>
+<style>
+  /* CSS Variables for Purple and Blue modes */
+  :root {
+    --purple-bg: #2e0854;
+    --purple-accent: #9b59b6;
+    --purple-text: #dcd0ff;
+
+    --blue-bg: #0b3d91;
+    --blue-accent: #2980b9;
+    --blue-text: #d0e7ff;
+
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Default: Purple Mode */
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--purple-bg);
+    color: var(--purple-text);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  body.blue-mode {
+    background-color: var(--blue-bg);
+    color: var(--blue-text);
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+  nav .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: default;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+  }
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  /* Mode toggle button */
+  #modeToggle {
+    background: transparent;
+    border: 2px solid currentColor;
+    border-radius: 24px;
+    color: inherit;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  #modeToggle:hover {
+    background-color: currentColor;
+    color: var(--purple-bg);
+  }
+  body.blue-mode #modeToggle:hover {
+    color: var(--blue-bg);
+  }
+
+  /* Main content container */
+  main {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 0 20px;
+  }
+
+  /* Section styles */
+  section {
+    margin-bottom: 60px;
+  }
+
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    border-bottom: 3px solid currentColor;
+    display: inline-block;
+    padding-bottom: 4px;
+    animation: fadeInDown 1s ease forwards;
+    opacity: 0;
+  }
+
+  /* About Me */
+  #about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+  }
+
+  /* Projects grid */
+  #projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: rgba(255 255 255 / 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
+  .project-card img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 160px;
+  }
+  .project-content {
+    margin-top: 12px;
+    flex-grow: 1;
+  }
+  .project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .project-desc {
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+  .project-links {
+    margin-top: 12px;
+  }
+  .project-links a {
+    text-decoration: none;
+    color: var(--purple-accent);
+    font-weight: 600;
+    margin-right: 16px;
+    transition: color 0.3s ease;
+  }
+  .project-links a:hover {
+    color: var(--purple-text);
+  }
+  body.blue-mode .project-links a {
+    color: var(--blue-accent);
+  }
+  body.blue-mode .project-links a:hover {
+    color: var(--blue-text);
+  }
+
+  /* Photobox */
+  #photobox {
+    background: rgba(255 255 255 / 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+  }
+  #photobox h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  #dayOfWeek {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--purple-accent);
+  }
+  body.blue-mode #dayOfWeek {
+    color: var(--blue-accent);
+  }
+  #photo {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  #photo:hover {
+    transform: scale(1.05);
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    0% {opacity: 0; transform: translateY(-20px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeInUp {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    nav ul {
+      gap: 14px;
+    }
+    section h2 {
+      font-size: 2rem;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Aysail</div>
+  <ul>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#photobox">Photobox</a></li>
+  </ul>
+  <button id="modeToggle" aria-label="Toggle color mode">Blue Mode</button>
+</nav>
+
+<main>
+  <section id="about" tabindex="0">
+    <h2>About Me</h2>
+    <p>I'm Aysail, also known as Jer. I enjoy photography, geography, geopolitics, coding, and philosophy (I'm naturally a philosophy thinker).</p>
+  </section>
+
+  <section id="projects" tabindex="0">
+    <h2>My Coding Projects</h2>
+    <div id="projectsContainer">
+      <!-- Example project cards -->
+      <div class="project-card" tabindex="0">
+        <img src="https://via.placeholder.com/300x160?text=Project+1" alt="Screenshot of Project 1" />
+        <div class="project-content">
+          <div class="project-title">Jers Playground</div>
+          <div class="project-desc">Gaming Website with Micro MiniGames on it</div>
+          <div class="project-links">
+            <a href="https://github.com/AySail/Jersplayground" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://aysail.github.io/Jersplayground/" target="_blank" rel="noopener">Play</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" tabindex="0">
+        <img src="https://via.placeholder.com/300x160?text=Project+2" alt="Screenshot of Project 2" />
+        <div class="project-content">
+          <div class="project-title">????????</div>
+          <div class="project-desc">?????????????????</div>
+          <div class="project-links">
+            <a href="https://github.com/aysail/????????" target="_blank" rel="noopener">GitHub</a>
+            <a href="about:blank" target="_blank" rel="noopener">Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photobox" tabindex="0">
+    <h2>Photobox - Weekly Picture</h2>
+    <h3 id="dayOfWeek">Loading...</h3>
+    <img id="photo" src="" alt="Weekly photograph" />
+    <p style="margin-top:12px; font-size: 0.9rem; opacity:0.7;">A new photo every week to inspire and brighten your day!</p>
+  </section>
+</main>
+
+<script>
+  // Color mode toggle
+  const modeToggleBtn = document.getElementById('modeToggle');
+  const body = document.body;
+
+  // Load mode from localStorage or default purple
+  let currentMode = localStorage.getItem('colorMode') || 'purple';
+
+  function updateMode(mode) {
+    if (mode === 'blue') {
+      body.classList.add('blue-mode');
+      modeToggleBtn.textContent = 'Purple Mode';
+    } else {
+      body.classList.remove('blue-mode');
+      modeToggleBtn.textContent = 'Blue Mode';
+    }
+    localStorage.setItem('colorMode', mode);
+  }
+
+  updateMode(currentMode);
+
+  modeToggleBtn.addEventListener('click', () => {
+    currentMode = (currentMode === 'purple') ? 'blue' : 'purple';
+    updateMode(currentMode);
+  });
+
+
+  // Photobox logic: show day and image
+  const dayOfWeekEl = document.getElementById('dayOfWeek');
+  const photoEl = document.getElementById('photo');
+
+  // Days array
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  // Set today's day name
+  const todayIndex = new Date().getDay();
+  const todayName = days[todayIndex];
+  dayOfWeekEl.textContent = todayName;
+
+  // Image URLs for each day (update manually here!)
+  const images = {
+    Sunday: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    Monday: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80",
+    Tuesday: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=600&q=80",
+    Wednesday: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+    Thursday: "https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=600&q=80",
+    Friday: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80",
+    Saturday: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=600&q=80"
+  };
+
+  photoEl.src = images[todayName];
+  photoEl.alt = `Weekly photo for ${todayName}`;
+
+  // Animate section headings and paragraphs on scroll
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const fadeInElements = document.querySelectorAll('section h2, #about p, #photobox');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  fadeInElements.forEach(el => {
+    // Prepare initial state
+    el.style.opacity = '0';
+    if(el.tagName === 'H2') {
+      el.style.transform = 'translateY(-20px)';
+    } else {
+      el.style.transform = 'translateY(20px)';
+    }
+    observer.observe(el);
+  });
+
+</script>
+
+</body>
+</html>
